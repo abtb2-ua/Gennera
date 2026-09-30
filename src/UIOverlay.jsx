@@ -16,7 +16,7 @@ export function TopBar() {
       {/* Replace with <img src="/logo.svg" /> */}
       <div className="flex items-center gap-2">
         <div className="grid h-8 w-8 place-items-center rounded-full bg-gradient-to-br from-emerald-700 to-emerald-500 text-sm font-bold text-amber-400">
-          ★
+          ☆
         </div>
         <span className="text-sm font-semibold tracking-tight text-white">Estrella Levante</span>
       </div>

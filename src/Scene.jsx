@@ -113,7 +113,8 @@ export default function Scene({ activeId, onSelect, onClear }) {
       >
         <color attach="background" args={['#0f172a']} />
         <hemisphereLight args={['#dbeafe', '#0f172a', 0.9]} />
-        <directionalLight position={[10, 15, 10]} intensity={1.6} />
+        {/* <directionalLight position={[10, 15, 10]} intensity={1.6} /> */}
+        <directionalLight position={[10, 15, 10]} intensity={1.4} color='#D3FDD6' />
         <directionalLight position={[-10, 6, -8]} intensity={0.5} color="#FDB913" />
 
         <Suspense fallback={null}>

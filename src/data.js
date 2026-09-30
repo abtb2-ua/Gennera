@@ -17,9 +17,9 @@ export const TONES = {
 // Metric helper: label, value, optional trend note + its tone
 const m = (label, value, note, noteTone) => ({ label, value, note, noteTone })
 
-const make = (x, size, rest) => ({
-  position: [x, size[1] + 0.9, 0], // hotspot floats above the machine
-  target: [x, size[1] / 2, 0], // camera looks at the machine's centre
+const make = (x, z, size, rest) => ({
+  position: [x, size[1] + 0.9, z], // hotspot floats above the machine
+  target: [x, size[1] / 2, z], // camera looks at the machine's centre
   view: [0.2, 0.35, 0.9],
   distance: 10,
   size, // only used by the placeholder scene
@@ -30,7 +30,7 @@ const make = (x, size, rest) => ({
 // All figures are illustrative mock data for the pitch.
 // Each machine: health, 4 metrics, a predictive alert and a maintenance forecast.
 export const HOTSPOTS = [
-  make(-10, [3, 4.5, 3], {
+  make(-11, -5, [3, 4.5, 3], {
     id: 'silos', title: 'Silos', subtitle: 'Almacenamiento de materia prima',
     health: 98, tone: 'green',
     metrics: [
@@ -43,7 +43,7 @@ export const HOTSPOTS = [
     alert: 'Consumo estable. Nivel suficiente para 3 días de producción. Reposición programada.',
     forecast: { label: 'Próx. reposición', value: '3 días' },
   }),
-  make(-6, [2.6, 1.8, 2], {
+  make(-11, -1, [2.6, 0, 2], {
     id: 'pumps', title: 'Bombas de Glicol', subtitle: 'Sistema de refrigeración',
     health: 78, tone: 'amber', alertTone: 'amber',
     metrics: [
@@ -56,7 +56,7 @@ export const HOTSPOTS = [
     alert: 'Desgaste de rodamiento detectado. Fallo estimado en 14 días. Acción: Programar revisión.',
     forecast: { label: 'Fallo estimado', value: '14 días' },
   }),
-  make(-2, [2.8, 2.4, 2], {
+  make(-6, -3.5, [2.8, 1, 2], {
     id: 'exchanger', title: 'Intercambiador de Calor', subtitle: 'Enfriamiento de mosto',
     health: 91, tone: 'green',
     metrics: [
@@ -69,7 +69,7 @@ export const HOTSPOTS = [
     alert: 'Ensuciamiento leve en placas. Limpieza CIP recomendada antes de perder eficiencia.',
     forecast: { label: 'Próx. limpieza CIP', value: '21 días' },
   }),
-  make(2, [4, 0.9, 1.4], {
+  make(2, 0, [4, 0.15, 1], {
     id: 'conveyor', title: 'Cinta Transportadora', subtitle: 'Tren de envasado',
     health: 96, tone: 'green',
     metrics: [
@@ -82,7 +82,7 @@ export const HOTSPOTS = [
     alert: 'Correa de transmisión al 88% de uso máximo. Funcionamiento óptimo garantizado.',
     forecast: { label: 'Cambio de correa', value: '≈ 40 días' },
   }),
-  make(6, [3, 2.6, 2.4], {
+  make(8, 0, [3, 1.5, 2.4], {
     id: 'filler', title: 'Llenadora', subtitle: 'Estación de llenado',
     health: 93, tone: 'green',
     metrics: [
@@ -95,7 +95,7 @@ export const HOTSPOTS = [
     alert: 'Válvulas de llenado en rango. Programar cambio de juntas en la próxima parada.',
     forecast: { label: 'Cambio de juntas', value: '45 días' },
   }),
-  make(10, [2.6, 2.4, 2.4], {
+  make(15.2, 0, [2.6, 1.5, 2.4], {
     id: 'capper', title: 'Taponadora Rotativa', subtitle: 'Cierre de envases',
     health: 95, tone: 'green',
     metrics: [
